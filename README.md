@@ -73,7 +73,7 @@ python main.py -ac train -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce -s 
 
 **tips：由于mixup的关系要使用其他损失函数进行组合需要使用下面具有深监督的结构**
 mixup机制理解如下：
-![目录文件](/building_segmetation/readme_need/Mixup.png)
+![目录文件](/building_segmetation/readme_need/mixup.png)
 
 训练BBU-net_deepversion(ce+dice)：
 ```python
