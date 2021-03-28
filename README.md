@@ -104,7 +104,7 @@ python main.py -ac test -e 20 -a resnet34_unet -b 5 -d final -bb no -l ce
 ```
 + 验证BBU-net：
 ```python
-python main.py -ac test -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce_dice
+python main.py -ac test -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce
 ```
 + 验证BBU-net_deepversion：
 ```python
