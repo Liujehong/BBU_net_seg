@@ -1,7 +1,7 @@
 '''
 author:liuyang
 from Chengdu Normal University
-https://github.com/Liujehong/BBU-net_segmentation_SR
+https://github.com.cnpmjs.org/Liujehong/BBU_net_seg
 '''
 import argparse
 import subprocess
@@ -40,7 +40,7 @@ def getArgs():
     parse.add_argument('--deepsupervision', default=0)
     parse.add_argument("--action",'-ac',type=str, help="train/test/predict/val", default="train") #选择测试训练模式
     parse.add_argument("--epoch",'-e', type=int, default=20)
-    parse.add_argument('--arch', '-a', metavar='ARCH', default='BB_unet_deepversion',
+    parse.add_argument('--arch', '-a', metavar='ARCH', default='BB_unet_var2',
                        help='UNet/resnet34_unet/resnet34_unet_nolock/P_unet/M_unet/N_unet/BB_unet/BB_unet_var2/BB_unet_deepversion')
     parse.add_argument("--batch_size", '-b',type=int, default=5)
     parse.add_argument('--dataset', '-d',default='reserve', help='final/reserve/testdata' )# 遥感数据
@@ -52,7 +52,7 @@ def getArgs():
     parse.add_argument("--scheduler", '-s',type=str, help="cos/rel/", default="cos")
     parse.add_argument("--bbn", '-bb',type=str, help="yes/no/", default="yes")
     parse.add_argument("--TTA", '-tt',type=str, help="yes/no/", default="no")
-    parse.add_argument("--loss",'-l',type=str,help="dice/ce/ce_dice",default="ce_dice")
+    parse.add_argument("--loss",'-l',type=str,help="dice/ce/ce_dice",default="ce")
     args = parse.parse_args()
     return args
 
@@ -579,6 +579,10 @@ def predic(test_dataloaders,save_predict,combainer,args):
 
         if not os.path.exists(dir):
             os.makedirs(dir)
+        else:
+            print('dir already exist!')
+        if not os.path.exists(outdir):
+            os.makedirs(outdir)
         else:
             print('dir already exist!')
         #初始化模型调用
