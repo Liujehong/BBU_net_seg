@@ -56,8 +56,8 @@ lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=1,thr
 # 使用说明
 ## 训练
 
-**想要改变训练代数或是batch_size大小只需要改变`-e`后面的数字以及`-b`后面的数字：-e对应epoch -b对应batch_size
-** -d对应采样方式 final：均匀采样（普通Unet、resnetUnet均以这个方式进行训练） reserve：反采样（已经包括了均匀采样和反采样两种形式，用于训练BBUnet针对不同分支自动选择采样方式）
+**想要改变训练代数或是batch_size大小只需要改变`-e`后面的数字以及`-b`后面的数字：-e对应epoch -b对应batch_size  
+-d对应采样方式 final：均匀采样（普通Unet、resnetUnet均以这个方式进行训练） reserve：反采样（已经包括了均匀采样和反采样两种形式，用于训练BBUnet针对不同分支自动选择采样方式）**
 
 训练BBU-net：
 ```python
