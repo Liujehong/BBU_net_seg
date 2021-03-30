@@ -55,16 +55,9 @@ lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=1,thr
 数据集官方源： [Inria Aerial Image Labeling Dataset](https://project.inria.fr/aerialimagelabeling/)
 # 使用说明
 ## 训练
-训练U-net：
-```python
-python main.py -ac train -e 20 -a UNet -b 5 -d final -bb no -s cos -l ce
-```
 
-
-训练resnet34_unet：
-```python
-python main.py -ac train -e 20 -a resnet34_unet -b 5 -d final -bb no -s cos -l ce
-```
+**想要改变训练代数或是batch_size大小只需要改变`-e`后面的数字以及`-b`后面的数字：-e对应epoch -b对应batch_size
+** -d对应采样方式 final：均匀采样（普通Unet、resnetUnet均以这个方式进行训练） reserve：反采样（已经包括了均匀采样和反采样两种形式，用于训练BBUnet针对不同分支自动选择采样方式）
 
 训练BBU-net：
 ```python
@@ -80,7 +73,16 @@ mixup机制理解如下：
 python main.py -ac train -e 20 -a BB_unet_deepversion -b 5 -d reserve -bb yes -l ce_dice -s cos
 ```
 
+训练U-net：
+```python
+python main.py -ac train -e 20 -a UNet -b 5 -d final -bb no -s cos -l ce
+```
 
+
+训练resnet34_unet：
+```python
+python main.py -ac train -e 20 -a resnet34_unet -b 5 -d final -bb no -s cos -l ce
+```
 
 
 ## 验证
