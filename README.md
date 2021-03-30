@@ -95,15 +95,8 @@ python main.py -ac train -e 20 -a resnet34_unet -b 5 -d final -bb no -s cos -l c
 
 ## 测试
 ### 开放测试
-选取数据集10%作为测试集与真实标签进行对比、
-+ 验证U-net：
-```python
-python main.py -ac test -e 20 -a UNet -b 5 -d final -bb no -l ce
-```
-+ 验证resnet34_unet：
-```python
-python main.py -ac test -e 20 -a resnet34_unet -b 5 -d final -bb no -l ce
-```
+选取数据集10%作为测试集与真实标签进行对比:
+
 + 验证BBU-net：
 ```python
 python main.py -ac test -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce
@@ -112,6 +105,15 @@ python main.py -ac test -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce
 ```python
 python main.py -ac test -e 20 -a BBU-net_deepversion -b 5 -d reserve -bb yes -l ce_dice
 ```
++ 验证U-net：
+```python
+python main.py -ac test -e 20 -a UNet -b 5 -d final -bb no -l ce
+```
++ 验证resnet34_unet：
+```python
+python main.py -ac test -e 20 -a resnet34_unet -b 5 -d final -bb no -l ce
+```
+
 
 ### 封闭测试
 使用数据源提供的无公开标签的原图进行分割预测然后使用`compress.py`压缩分割图像然后上传官网测试接口进行封闭测试，以避免争对原始数据的强制拟合训练。
