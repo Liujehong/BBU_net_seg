@@ -103,7 +103,7 @@ python main.py -ac test -e 20 -a BB_unet_var2 -b 5 -d reserve -bb yes -l ce
 ```
 + 验证BBU-net_deepversion：
 ```python
-python main.py -ac test -e 20 -a BBU-net_deepversion -b 5 -d reserve -bb yes -l ce_dice
+python main.py -ac test -e 20 -a BB_unet_deepversion -b 5 -d reserve -bb yes -l ce_dice
 ```
 + 验证U-net：
 ```python
